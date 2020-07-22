@@ -1,6 +1,7 @@
 package com.lambdaschool.shoppingcart.services;
 
 import com.lambdaschool.shoppingcart.exceptions.ResourceNotFoundException;
+import com.lambdaschool.shoppingcart.handlers.HelperFunctions;
 import com.lambdaschool.shoppingcart.models.Role;
 import com.lambdaschool.shoppingcart.models.User;
 import com.lambdaschool.shoppingcart.models.UserRoles;
@@ -106,6 +107,8 @@ public class UserServiceImpl
         newUser.setUsername(user.getUsername()
             .toLowerCase());
         newUser.setPasswordNoEncrypt(user.getPassword());
+        newUser.setComments(user.getComments()
+            .toLowerCase());
 
         newUser.getRoles()
             .clear();
@@ -141,6 +144,12 @@ public class UserServiceImpl
             if (user.getPassword() != null)
             {
                 currentUser.setPasswordNoEncrypt(user.getPassword());
+            }
+
+            if (user.getComments() != null)
+            {
+                currentUser.setComments(user.getComments()
+                    .toLowerCase());
             }
 
             if (user.getRoles()
