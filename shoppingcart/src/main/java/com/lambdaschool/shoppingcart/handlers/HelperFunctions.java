@@ -61,8 +61,8 @@ public class HelperFunctions
         // otherwise stop the process and throw an exception
         Authentication authentication = SecurityContextHolder.getContext()
             .getAuthentication();
-        if (username.equalsIgnoreCase(authentication.getName()
-            .toLowerCase()) || authentication.getAuthorities()
+        if (username.equalsIgnoreCase(authentication.getName().toLowerCase()) ||
+            authentication.getAuthorities()
             .contains(new SimpleGrantedAuthority("ROLE_ADMIN")))
         {
             // this user can make this change

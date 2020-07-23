@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@Transactional
+//@Transactional
 @Service(value = "securityUserService")
 public class SecurityUserServiceImpl implements UserDetailsService
 {
@@ -26,7 +26,9 @@ public class SecurityUserServiceImpl implements UserDetailsService
         {
             throw new UsernameNotFoundException("Invalid username or password.");
         }
-
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.getAuthority());
+        return new org.springframework.security.core.userdetails
+            .User(user.getUsername(),
+            user.getPassword(),
+            user.getAuthority());
     }
 }

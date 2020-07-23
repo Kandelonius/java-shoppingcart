@@ -25,6 +25,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter
     {
         http.authorizeRequests()
             .antMatchers("/h2-console/**",
+                "/",
                 "/swagger-resources/**",
                 "/swagger-resource/**",
                 "/swagger-ui.html",
@@ -36,7 +37,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter
             .exceptionHandling()
             .accessDeniedHandler(new OAuth2AccessDeniedHandler());
         http.csrf().disable();
-        http.headers().frameOptions().deny();
+        http.headers().frameOptions().disable();
         http.logout().disable();
     }
 }

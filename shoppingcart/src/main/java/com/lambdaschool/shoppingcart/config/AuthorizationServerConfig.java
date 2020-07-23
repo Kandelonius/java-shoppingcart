@@ -50,6 +50,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception
     {
         endpoints.tokenStore(tokenStore).authenticationManager(authenticationManager);
-        endpoints.pathMapping("/oath/token", "/login");
+        endpoints.pathMapping("/oauth/token", "/login");
     }
 }
