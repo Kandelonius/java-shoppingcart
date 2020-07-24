@@ -4,10 +4,12 @@ import com.lambdaschool.shoppingcart.models.Cart;
 import com.lambdaschool.shoppingcart.models.Product;
 import com.lambdaschool.shoppingcart.models.User;
 import com.lambdaschool.shoppingcart.services.CartService;
+import com.lambdaschool.shoppingcart.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +20,9 @@ public class CartController
 {
     @Autowired
     private CartService cartService;
+
+    @Autowired
+    UserService userService;
 
     @GetMapping(value = "/user/{userid}", produces = {"application/json"})
     public ResponseEntity<?> listAllCarts(@PathVariable long userid)
