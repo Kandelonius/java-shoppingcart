@@ -17,7 +17,9 @@ public interface CartRepository
 {
     List<Cart> findAllByUser_Userid(long id);
 
-    @Query(value = "SELECT COUNT(*) as count FROM cartitems WHERE cartid = :cartid AND productid = :productid", nativeQuery = true)
+    @Query(value = "SELECT COUNT(*) as count FROM cartitems WHERE " +
+        "cartid = :cartid AND productid = :productid",
+        nativeQuery = true)
     JustTheCount checkCartItems(long cartid,
                                 long productid);
 
